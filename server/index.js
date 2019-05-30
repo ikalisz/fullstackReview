@@ -4,6 +4,7 @@ const app = express()
 const massive = require('massive')
 const session = require('express-session')
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
+const auth_ctrl = require('./controllers/auth_controller')
 app.use(express.json())
 massive(CONNECTION_STRING)
 .then(db => {
