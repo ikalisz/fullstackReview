@@ -19,6 +19,9 @@ app.use(session({
         maxAge: 1000 * 60 * 60
     }
 }))
+
 app.listen(SERVER_PORT, () => {
     console.log(`Server working on port ${SERVER_PORT}`)
 })
+app.post('/auth/register', auth_ctrl.register)
+app.post('/auth/login', auth_ctrl.login)
