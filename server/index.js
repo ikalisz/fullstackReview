@@ -5,6 +5,7 @@ const massive = require('massive')
 const session = require('express-session')
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 const auth_ctrl = require('./controllers/auth_controller')
+const balance_ctrl = require('./controllers/balance_controller')
 app.use(express.json())
 massive(CONNECTION_STRING)
 .then(db => {
@@ -25,3 +26,6 @@ app.listen(SERVER_PORT, () => {
 })
 app.post('/auth/register', auth_ctrl.register)
 app.post('/auth/login', auth_ctrl.login)
+app.get('/auth/details', auth_ctrl.getDetails)
+app.post('/balance/deposit', balance_ctrl.deposit)
+app.post('/balance/withdrawl', balance_ctrl.withdrawl)

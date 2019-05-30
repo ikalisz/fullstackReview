@@ -1,0 +1,1 @@
+select * from balances where balance_id = ${id};
